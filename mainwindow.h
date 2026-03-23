@@ -17,7 +17,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_pushButton_fixed_clicked();
+
 private:
     Ui::MainWindow *ui;
+    bool isStayOnTop = false;   //判断窗口是否置顶
 };
 #endif // MAINWINDOW_H
