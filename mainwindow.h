@@ -19,6 +19,7 @@ public:
 
 private slots:
     void on_pushButton_fixed_clicked();
+    void show_mouse_coordinates();
 
 private:
     Ui::MainWindow *ui;
