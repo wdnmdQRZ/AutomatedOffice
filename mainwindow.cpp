@@ -71,12 +71,54 @@ void MainWindow::on_comboBox_action_type_editTextChanged(const QString &arg1)
 
 void MainWindow::on_pushButton_insert_clicked()
 {
+    //获取选项内容
     QString qs_action_type=this->ui->comboBox_action_type->currentText();
     QString qs_action_parameters=this->ui->comboBox_action_parameters->currentText();
     long l_repeat_time=this->ui->spinBox_repeat_time->value();
     long l_lastRow = ui->tableWidget_execut_table->rowCount();
+    //插入内容
     ui->tableWidget_execut_table->insertRow(l_lastRow);
     ui->tableWidget_execut_table->setItem(l_lastRow, 0, new QTableWidgetItem(qs_action_type));
     ui->tableWidget_execut_table->setItem(l_lastRow, 1, new QTableWidgetItem(qs_action_parameters));
     ui->tableWidget_execut_table->setItem(l_lastRow, 2, new QTableWidgetItem(QString::number(l_repeat_time)));
 }
+
+void MainWindow::on_pushButton_run_clicked()
+{
+    QTableWidget *tableWidget_execut_table=this->ui->tableWidget_execut_table;
+    int rowCount = tableWidget_execut_table->rowCount();
+    int colCount = tableWidget_execut_table->columnCount();
+    for(long i=0;i<rowCount;i++){
+        QString qs_type=tableWidget_execut_table->item(i,0)->text();
+        QString qs_parameters=tableWidget_execut_table->item(i,1)->text();
+        long l_repeat_time=tableWidget_execut_table->item(i,2)->text().toLong();
+        //鼠标操作
+        if(qs_type=="鼠标操作"){
+            for(long j=0;j<l_repeat_time;j++){
+                qDebug()<<qs_parameters;
+            }
+        }
+        //键盘操作
+        else if(qs_type=="键盘操作"){
+            for(long j=0;j<l_repeat_time;j++){
+                qDebug()<<qs_parameters;
+            }
+        }
+        //延时操作
+        else if(qs_type=="延时(毫秒)"){
+            for(long j=0;j<l_repeat_time;j++){
+                qDebug()<<qs_parameters;
+                _delay(qs_parameters.toInt());
+            }
+        }
+    }
+}
+
+void MainWindow::_delay(int ms)
+{
+    QEventLoop loop;
+    QTimer::singleShot(ms, &loop, &QEventLoop::quit);
+    loop.exec();
+}
+
+
