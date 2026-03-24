@@ -17,7 +17,7 @@
    <widget class="QPushButton" name="pushButton_fixed">
     <property name="geometry">
      <rect>
-      <x>750</x>
+      <x>760</x>
       <y>10</y>
       <width>21</width>
       <height>21</height>
@@ -36,20 +36,15 @@
      <string>📌</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
+   <widget class="QTableWidget" name="tableWidget_execut_table">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>90</y>
       <width>501</width>
       <height>461</height>
      </rect>
     </property>
-    <column>
-     <property name="text">
-      <string>序号</string>
-     </property>
-    </column>
     <column>
      <property name="text">
       <string>动作</string>
@@ -71,7 +66,7 @@
      <rect>
       <x>520</x>
       <y>40</y>
-      <width>71</width>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
@@ -88,7 +83,7 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>610</x>
       <y>40</y>
       <width>21</width>
       <height>21</height>
@@ -107,7 +102,7 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>700</x>
       <y>40</y>
       <width>21</width>
       <height>21</height>
@@ -126,7 +121,7 @@
    <widget class="QLineEdit" name="lineEdit_mouse_showx">
     <property name="geometry">
      <rect>
-      <x>630</x>
+      <x>640</x>
       <y>40</y>
       <width>51</width>
       <height>20</height>
@@ -139,7 +134,7 @@
    <widget class="QLineEdit" name="lineEdit_mouse_showy">
     <property name="geometry">
      <rect>
-      <x>720</x>
+      <x>730</x>
       <y>40</y>
       <width>51</width>
       <height>20</height>
@@ -147,6 +142,172 @@
     </property>
     <property name="readOnly">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_insert">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>60</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>插入操作</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>操作类型</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_action_type">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>10</y>
+      <width>81</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="editable">
+     <bool>true</bool>
+    </property>
+    <item>
+     <property name="text">
+      <string>鼠标操作</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>键盘操作</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>延时(毫秒)</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="comboBox_action_parameters">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>10</y>
+      <width>81</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="editable">
+     <bool>true</bool>
+    </property>
+    <item>
+     <property name="text">
+      <string>左键单击</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>右键单击</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>左键双击</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>右键双击</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>上滚滑轮</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>下滚滑轮</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>10</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>操作参数</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>10</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>重复次数</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_repeat_time">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>10</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
     </property>
    </widget>
   </widget>

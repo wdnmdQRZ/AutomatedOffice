@@ -48,3 +48,35 @@ void MainWindow::show_mouse_coordinates(){
     this->ui->lineEdit_mouse_showx->setText(QString::number(QCursor().pos().x()));
     this->ui->lineEdit_mouse_showy->setText(QString::number(QCursor().pos().y()));
 }
+
+
+void MainWindow::on_comboBox_action_type_editTextChanged(const QString &arg1)
+{
+    ui->comboBox_action_parameters->clear();
+    if(arg1=="鼠标操作"){
+        ui->comboBox_action_parameters->addItems({"左键单击","右键单击","左键双击","右键双击","上滚滑轮","下滚滑轮"});
+    }
+    else if(arg1=="键盘操作"){
+        ui->comboBox_action_parameters->addItems({
+            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
+            "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
+            "u", "v", "w", "x", "y", "z"
+        });
+    }
+    else if(arg1=="延时(毫秒)"){
+        ui->comboBox_action_parameters->addItems({});
+    }
+}
+
+
+void MainWindow::on_pushButton_insert_clicked()
+{
+    QString qs_action_type=this->ui->comboBox_action_type->currentText();
+    QString qs_action_parameters=this->ui->comboBox_action_parameters->currentText();
+    long l_repeat_time=this->ui->spinBox_repeat_time->value();
+    long l_lastRow = ui->tableWidget_execut_table->rowCount();
+    ui->tableWidget_execut_table->insertRow(l_lastRow);
+    ui->tableWidget_execut_table->setItem(l_lastRow, 0, new QTableWidgetItem(qs_action_type));
+    ui->tableWidget_execut_table->setItem(l_lastRow, 1, new QTableWidgetItem(qs_action_parameters));
+    ui->tableWidget_execut_table->setItem(l_lastRow, 2, new QTableWidgetItem(QString::number(l_repeat_time)));
+}

@@ -21,6 +21,10 @@ private slots:
     void on_pushButton_fixed_clicked();
     void show_mouse_coordinates();
 
+    void on_comboBox_action_type_editTextChanged(const QString &arg1);
+
+    void on_pushButton_insert_clicked();
+
 private:
     Ui::MainWindow *ui;
     bool isStayOnTop = false;   //判断窗口是否置顶
