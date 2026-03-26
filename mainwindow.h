@@ -36,6 +36,7 @@ private slots:
     void on_pushButton_insert_clicked();//插入数据
     void on_pushButton_run_clicked();//开始运行
     void _delay(int ms);//局部事件循环延时函数
+    void onTableMenu(const QPoint &pos);//表格右键菜单实现
 
 private:
     Ui::MainWindow *ui;

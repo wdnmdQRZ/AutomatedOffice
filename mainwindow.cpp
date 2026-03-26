@@ -10,6 +10,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    // 右键菜单槽函数：处理表格右键弹出的菜单
+    connect(ui->tableWidget_execut_table, &QTableWidget::customContextMenuRequested, this, &MainWindow::onTableMenu);
+
     //计时器实现实时显示鼠标坐标
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainWindow::show_mouse_coordinates);
@@ -229,4 +233,56 @@ void MainWindow::mouseRightDoubleClick()
     mouseRightClick();
     _delay(100);
     mouseRightClick();
+}
+
+void MainWindow::onTableMenu(const QPoint &pos)
+{
+    int row = ui->tableWidget_execut_table->rowAt(pos.y());
+    if(row < 0) return;
+
+    QMenu menu;
+    QAction *up   = menu.addAction("上移该行");
+    QAction *down = menu.addAction("下移该行");
+    QAction *del  = menu.addAction("删除选中行");
+    QAction *clear= menu.addAction("清空表格");
+
+    QAction *ac = menu.exec(ui->tableWidget_execut_table->mapToGlobal(pos));
+
+    // ==================== 上移 ====================
+    if(ac == up) {
+        if(row > 0) {
+            for(int col=0; col<ui->tableWidget_execut_table->columnCount(); col++){
+                QTableWidgetItem *tmp = ui->tableWidget_execut_table->takeItem(row, col);
+                ui->tableWidget_execut_table->setItem(row, col, ui->tableWidget_execut_table->takeItem(row-1, col));
+                ui->tableWidget_execut_table->setItem(row-1, col, tmp);
+            }
+        }
+    }
+
+    // ==================== 下移 ====================
+    else if(ac == down) {
+        if(row < ui->tableWidget_execut_table->rowCount()-1) {
+            for(int col=0; col<ui->tableWidget_execut_table->columnCount(); col++){
+                QTableWidgetItem *tmp = ui->tableWidget_execut_table->takeItem(row, col);
+                ui->tableWidget_execut_table->setItem(row, col, ui->tableWidget_execut_table->takeItem(row+1, col));
+                ui->tableWidget_execut_table->setItem(row+1, col, tmp);
+            }
+        }
+    }
+
+    // ==================== 删除 ====================
+    else if(ac == del) {
+        auto ranges = ui->tableWidget_execut_table->selectedRanges();
+        for(int i=ranges.size()-1; i>=0; i--) {
+            int t = ranges[i].topRow();
+            int b = ranges[i].bottomRow();
+            for(int r=b; r>=t; r--)
+                ui->tableWidget_execut_table->removeRow(r);
+        }
+    }
+
+    // ==================== 清空 ====================
+    else if(ac == clear) {
+        ui->tableWidget_execut_table->setRowCount(0);
+    }
 }
