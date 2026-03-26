@@ -204,7 +204,17 @@
     </item>
     <item>
      <property name="text">
-      <string>键盘操作</string>
+      <string>鼠标移动</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>键盘按下</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>键盘抬起</string>
      </property>
     </item>
     <item>
@@ -294,7 +304,7 @@
      </font>
     </property>
     <property name="text">
-     <string>重复次数</string>
+     <string>执行次数</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -308,6 +318,9 @@
       <width>101</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="value">
+     <number>1</number>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_run">
