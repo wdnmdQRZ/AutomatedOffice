@@ -28,28 +28,28 @@
 
 ### 方法一：从源码构建
 
-1. 确保安装了Qt 5开发环境和CMake
+1. 确保安装了Qt 6开发环境和CMake
 2. 克隆仓库：
    ```bash
-git clone https://github.com/yourusername/mouse-automation-tool.git
-cd mouse-automation-tool
+   git clone https://github.com/wdnmdQRZ/AutomatedOffice.git
+   cd AutomatedOffice
    ```
 3. 构建项目：
    ```bash
-mkdir build
-cd build
-cmake ..
-cmake --build .
+   mkdir build
+   cd build
+   cmake ..
+   cmake --build .
    ```
 4. 运行程序：
    ```bash
-./mouse-automation-tool.exe
+   ./AutomatedOffice.exe
    ```
 
 ### 方法二：直接运行（如果提供了可执行文件）
 
 1. 下载发布的可执行文件
-2. 双击运行 `mouse-automation-tool.exe`
+2. 双击运行 `AutomatedOffice.exe`
 
 ## 使用方法
 
@@ -77,7 +77,7 @@ cmake --build .
 ## 项目结构
 
 ```
-mouse-automation-tool/
+AutomatedOffice/
 ├── main.cpp              # 主入口文件
 ├── mainwindow.h          # 主窗口类定义
 ├── mainwindow.cpp        # 主窗口实现
@@ -103,4 +103,4 @@ MIT License
 ## 联系方式
 
 如有问题或建议，可通过以下方式联系：
-- GitHub: [yourusername](https://github.com/yourusername)
+- GitHub: [wdnmdQRZ](https://github.com/wdnmdQRZ)
