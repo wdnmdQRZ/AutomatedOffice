@@ -45,6 +45,9 @@
       <height>461</height>
      </rect>
     </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
+    </property>
     <column>
      <property name="text">
       <string>动作</string>

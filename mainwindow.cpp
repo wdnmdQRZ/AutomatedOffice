@@ -45,10 +45,12 @@ void MainWindow::on_pushButton_fixed_clicked()
     }
 }
 
+// 显示物理坐标
 void MainWindow::show_mouse_coordinates(){
-    //显示坐标
-    this->ui->lineEdit_mouse_showx->setText(QString::number(QCursor().pos().x()));
-    this->ui->lineEdit_mouse_showy->setText(QString::number(QCursor().pos().y()));
+    POINT p;
+    GetPhysicalCursorPos(&p);
+    ui->lineEdit_mouse_showx->setText(QString::number(p.x));
+    ui->lineEdit_mouse_showy->setText(QString::number(p.y));
 }
 
 
