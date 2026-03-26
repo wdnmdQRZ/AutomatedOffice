@@ -57,7 +57,7 @@
     </column>
     <column>
      <property name="text">
-      <string>重复次数</string>
+      <string>执行次数</string>
      </property>
     </column>
    </widget>
@@ -310,7 +310,7 @@
      <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_repeat_time">
+   <widget class="QSpinBox" name="spinBox_execute_time">
     <property name="geometry">
      <rect>
       <x>400</x>
